@@ -1,9 +1,9 @@
-/* Estilo ciberpunk y retro net art */
+/* Estilo ciberpunk y retro net art con holograma */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
 body {
     font-family: 'Orbitron', sans-serif;
-	text-align: center;
+    text-align: center;
     background-color: #0a0a0a;
     color: #00ffcc;
     margin: 0;
@@ -15,11 +15,12 @@ body {
 header {
     text-align: center;
     padding: 20px;
-    background: linear-gradient(90deg, #ff00ff, #00ffff);
-    box-shadow: 0 0 15px #ff00ff;
+    background: linear-gradient(90deg, #003322, #000000, #220011);
+    box-shadow: 0 0 15px #00ffcc;
     position: sticky;
     top: 0;
     z-index: 1000;
+    border-bottom: 1px solid #004433;
 }
 
 header h1 {
@@ -27,7 +28,50 @@ header h1 {
     color: #00ffcc;
     text-transform: uppercase;
     letter-spacing: 3px;
-    animation: glitch 0.8s infinite alternate;
+    animation: hologram 6s infinite ease-in-out;
+    position: relative;
+}
+
+/* Efecto holograma */
+@keyframes hologram {
+  0% {
+    text-shadow:
+      1px 1px 2px #00ffcc,
+      -1px -1px 2px rgba(0, 255, 204, 0.5),
+      2px 0px 4px rgba(255, 0, 255, 0.3);
+    transform: translateY(0) skewX(0deg);
+    opacity: 0.95;
+  }
+  25% {
+    text-shadow:
+      2px -2px 3px rgba(0, 255, 204, 0.7),
+      -2px 2px 3px rgba(255, 0, 255, 0.4);
+    transform: translateY(-1px) skewX(1deg);
+    opacity: 1;
+  }
+  50% {
+    text-shadow:
+      0 0 6px #00ffcc,
+      0 0 12px rgba(0, 255, 204, 0.3),
+      1px 1px 3px rgba(255, 0, 255, 0.2);
+    transform: translateY(1px) skewX(-1deg);
+    opacity: 0.92;
+  }
+  75% {
+    text-shadow:
+      -2px 2px 4px rgba(0, 255, 204, 0.5),
+      2px -2px 4px rgba(255, 0, 255, 0.3);
+    transform: translateY(0px) skewX(0.5deg);
+    opacity: 1;
+  }
+  100% {
+    text-shadow:
+      1px -1px 2px #00ffcc,
+      -1px 1px 2px rgba(0, 255, 204, 0.4),
+      2px 0px 4px rgba(255, 0, 255, 0.2);
+    transform: translateY(0) skewX(0deg);
+    opacity: 0.96;
+  }
 }
 
 nav ul {
@@ -35,9 +79,9 @@ nav ul {
     justify-content: center;
     padding: 0;
     list-style-type: none;
-    background: rgba(0, 255, 255, 0.1);
-    border: 1px solid #00ffff;
-    box-shadow: 0 0 10px #00ffff;
+    background: rgba(0, 255, 255, 0.05);
+    border: 1px solid #004433;
+    box-shadow: 0 0 10px #004433;
     padding: 10px;
 }
 
@@ -47,10 +91,10 @@ nav ul li {
 
 nav ul li a {
     font-size: 2rem;
-    color: #ff00ff;
+    color: #ff0055;
     text-decoration: none;
     transition: all 0.3s;
-    text-shadow: 0 0 5px #ff00ff;
+    text-shadow: 0 0 5px #ff0055;
 }
 
 nav ul li a:hover {
@@ -63,15 +107,15 @@ footer {
     text-align: center;
     padding: 10px;
     font-size: 1rem;
-    background: rgba(255, 0, 255, 0.1);
-    box-shadow: 0 0 10px #ff00ff;
+    background: rgba(0, 255, 255, 0.05);
+    box-shadow: 0 0 10px #004433;
 }
 
 /* Estilo para la biografía */
 #biography {
     padding: 20px;
     text-align: center;
-    background: #002b36; /* Azul oscuro para mejor contraste */
+    background: #002b36;
     border: 2px solid #00ffff;
     box-shadow: 0 0 15px #00ffff;
     max-width: 800px;
@@ -83,15 +127,19 @@ footer {
     font-size: 1.5rem;
     line-height: 1.6;
     color: #00ffcc;
-    text-shadow: 0 0 5px #ff00ff;
-    animation: none; /* Elimina el parpadeo para mejorar legibilidad */
+    text-shadow: 0 0 5px #00ffcc;
+    animation: none;
+}
+.icon-img {
+    width: 32px;
+    height: 32px;
+    image-rendering: pixelated;
+    transition: all 0.3s ease;
+
 }
 
-/* Animaciones */
-@keyframes glitch {
-    0% { transform: skewX(0deg); }
-    25% { transform: skewX(5deg); }
-    50% { transform: skewX(-5deg); }
-    75% { transform: skewX(3deg); }
-    100% { transform: skewX(0deg); }
+/* Efecto al pasar el mouse */
+.custom-icon:hover .icon-img {
+    transform: scale(1.2) rotate(2deg);
+    filter: drop-shadow(0 0 6px #00ffff) brightness(150%);
 }
