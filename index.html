@@ -40,5 +40,23 @@
     </footer>
 
     <script src="script.js"></script>
+<script>
+  const header = document.querySelector("header");
+
+  let isTitleHidden = false;
+
+  window.addEventListener("scroll", () => {
+    if (window.innerWidth <= 768) {
+      const scrollY = window.scrollY;
+      if (scrollY > 50 && !isTitleHidden) {
+        header.classList.add("hide-title");
+        isTitleHidden = true;
+      } else if (scrollY <= 10 && isTitleHidden) {
+        header.classList.remove("hide-title");
+        isTitleHidden = false;
+      }
+    }
+  });
+</script>
 </body>
 </html>
