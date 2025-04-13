@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Lista de tracks con sus respectivos embeds de Bandcamp
     const tracks = [
+	"https://bandcamp.com/EmbeddedPlayer/track=3770574939/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/",    
         "https://bandcamp.com/EmbeddedPlayer/track=677882822/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/",
         "https://bandcamp.com/EmbeddedPlayer/track=2674625316/size=large/bgcol=333333/linkcol=2ebd35/minimal=true/transparent=true/",
         "https://bandcamp.com/EmbeddedPlayer/album=781834312/size=large/bgcol=333333/linkcol=2ebd35/minimal=true/transparent=true/",
